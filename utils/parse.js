@@ -14,8 +14,6 @@ const exec = (content) => {
 export const parse = (content, nameType = 'number') => {
   const isCreateIndex = nameType === 'number'
   return exec(content)
-    .map((
-      r,
-      i
-    ) => ({ ...r, fileName: isCreateIndex ? ++i : r.fileName }))
+    .map((array,index)
+      => ({ ...array, fileName: isCreateIndex ? ++index : array.fileName }))
 }
