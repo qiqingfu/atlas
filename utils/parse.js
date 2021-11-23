@@ -1,4 +1,4 @@
-const matchImageReg = /https?:\/\/(?:\w+.)+\/(\w+)(.(?:jpe?g|svg|png))/gi
+const matchImageReg = /https?:\/\/.*?\/(.*?)\.(jpe?g|png|svg)/gi
 
 const exec = (content) => {
   const arrays = []
@@ -14,6 +14,5 @@ const exec = (content) => {
 export const parse = (content, nameType = 'number') => {
   const isCreateIndex = nameType === 'number'
   return exec(content)
-    .map((array,index)
-      => ({ ...array, fileName: isCreateIndex ? ++index : array.fileName }))
+    .map((array,index) => ({ ...array, fileName: isCreateIndex ? ++index : array.fileName }))
 }
