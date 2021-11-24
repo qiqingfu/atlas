@@ -1,7 +1,7 @@
 {
   "name": "create-atlas",
-  "version": "0.0.3",
-  "description": "For parsing and downloading galleries",
+  "version": "0.0.4",
+  "description": "Parse the image address in the document and generate it locally.",
   "type": "module",
   "bin": {
     "create-atlas": "outfile.cjs"
