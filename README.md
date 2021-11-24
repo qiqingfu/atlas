@@ -5,7 +5,7 @@ Parse the image address in the document and generate it locally.
 # Install
 
 Global installation via npm：
-```json
+```text
 npm install -g create-atlas
 ```
 
