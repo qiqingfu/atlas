@@ -4,7 +4,7 @@
   "description": "For parsing and downloading galleries",
   "type": "module",
   "bin": {
-    "create-vue": "outfile.cjs"
+    "create-atlas": "outfile.cjs"
   },
   "files": [
     "outfile.cjs"
