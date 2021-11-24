@@ -1,6 +1,6 @@
 {
   "name": "create-atlas",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "For parsing and downloading galleries",
   "type": "module",
   "bin": {
