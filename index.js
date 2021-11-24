@@ -8,7 +8,7 @@ const minimist = require('minimist')
 const prompts = require('prompts')
 
 const { red } = require('kolorist')
-const { getPath } = require('./utils/getPath')
+const { getFilePath } = require('./utils/getFilePath')
 const { readFile } = require('./utils/readFile')
 const { parse } = require('./utils/parse')
 const { downLoadImageToLocal, createRootDir } = require('./utils/generate')
@@ -70,15 +70,11 @@ async function init() {
 
   const root = path.resolve(cwd, targetDirName)
 
-  // 1. 获取内容文件的路径
-  const originFilePath = getPath(argv.path, cwd)
-  // 2. 读取文件内容
+  const originFilePath = getFilePath(argv.path, cwd)
   const content = readFile(originFilePath)
-  // 3. 解析内容
   const images = parse(content)
-  // 4. 覆盖或新增 root 目录
+  
   await createRootDir(root, shouldOverwrite)
-  // 5. 生成对应的图片
   await downLoadImageToLocal(images, root)
 }
 

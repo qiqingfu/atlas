@@ -7,7 +7,7 @@ export const getAbsolute = (argvPath, cwd) => {
   return path.resolve(cwd, argvPath)
 }
 
-export const getPath = (argvPath, cwd) => {
+export const getFilePath = (argvPath, cwd) => {
   if (!argvPath || typeof argvPath !== 'string') {
     throw new Error(red('✖') + ' The command line argument --file-path or --path or --p must be commanded')
   }
