@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "is-absolute": "^1.0.0",
+    "ora": "^6.0.1",
     "request": "^2.88.2"
   }
 }
