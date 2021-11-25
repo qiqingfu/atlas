@@ -1,6 +1,6 @@
 {
   "name": "create-atlas",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Parse the image address in the document and generate it locally.",
   "type": "module",
   "bin": {
