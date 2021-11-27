@@ -2,7 +2,7 @@ const path = require('path')
 const { red } = require('kolorist')
 const isAbsolute = require('is-absolute')
 
-const { isFileLegal, supportedFileTypes } = require('./checkFile')
+const { isFileLegal } = require('./checkFile')
 
 export const getAbsolute = (argvPath, cwd) => {
   if (isAbsolute(argvPath)) return argvPath

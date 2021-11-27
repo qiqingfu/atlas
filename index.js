@@ -18,22 +18,17 @@ function canSafelyOverwrite(dir) {
   return !fs.existsSync(dir) || fs.readdirSync(dir).length === 0
 }
 
-function getArgv(cwd) {
+async function init() {
+  const cwd = process.cwd()
+  let originFilePath
+
   const argv = minimist(process.argv.slice(2), {
     alias: { 'file-path': ['path', 'p'] }
   })
 
-  if (!argv.p) return { argv }
-  return {
-    argv,
-    originFilePath: getFilePath(argv.path, cwd)
+  if (argv.p) {
+    originFilePath = getFilePath(argv.p, cwd)
   }
-}
-
-async function init() {
-  const cwd = process.cwd()
-
-  let { argv, originFilePath } = getArgv(cwd)
 
   let targetDir = argv._[0]
   const defaultProjectName = !targetDir ? 'images' : targetDir
