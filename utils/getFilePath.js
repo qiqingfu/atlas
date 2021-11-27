@@ -15,7 +15,7 @@ export const getFilePath = (argvPath, cwd) => {
   const originFilePath = getAbsolute(argvPath, cwd)
   const errorMsg = isFileLegal(originFilePath)
 
-  if (errorMsg) {
+  if (typeof errorMsg === 'string') {
     throw new Error(red('✖') + ' ' + errorMsg)
   }
 

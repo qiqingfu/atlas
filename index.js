@@ -12,7 +12,7 @@ const { getFilePath } = require('./utils/getFilePath')
 const { readFile } = require('./utils/readFile')
 const { parse } = require('./utils/parse')
 const { downLoadImageToLocal, createRootDir } = require('./utils/generate')
-const { checkFileIsExist, checkFileExtname, supportedFileTypes } = require('./utils/checkFile')
+const { isFileLegal } = require('./utils/checkFile')
 
 function canSafelyOverwrite(dir) {
   return !fs.existsSync(dir) || fs.readdirSync(dir).length === 0
@@ -46,9 +46,7 @@ async function init() {
         name: 'filePath',
         type: originFilePath ? null : 'text',
         message: 'Parsed file path：',
-        validate: (value) => {
-          return true
-        }
+        validate: (value) => isFileLegal(value)
       },
       {
         name: 'targetDirName',
@@ -84,14 +82,9 @@ async function init() {
 
   const { filePath = originFilePath, targetDirName, shouldOverwrite } = result
 
-  console.log('filePath =>', filePath)
-  console.log('targetDirName =>', targetDirName)
-  console.log('shouldOverwrite =>', shouldOverwrite)
-  return
-
   const root = path.resolve(cwd, targetDirName)
 
-  const content = readFile(originFilePath)
+  const content = readFile(filePath)
   const images = parse(content)
 
   await createRootDir(root, shouldOverwrite)

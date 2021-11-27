@@ -20,5 +20,5 @@ export const isFileLegal = (filePath) => {
     return `Formats other than ${supportedFileTypes.join('、')} are not supported`
   }
 
-  return null
+  return true
 }
