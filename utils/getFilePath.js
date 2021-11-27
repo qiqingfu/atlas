@@ -2,14 +2,22 @@ const path = require('path')
 const { red } = require('kolorist')
 const isAbsolute = require('is-absolute')
 
+const { isFileLegal, supportedFileTypes } = require('./checkFile')
+
 export const getAbsolute = (argvPath, cwd) => {
   if (isAbsolute(argvPath)) return argvPath
   return path.resolve(cwd, argvPath)
 }
 
 export const getFilePath = (argvPath, cwd) => {
-  if (!argvPath || typeof argvPath !== 'string') {
-    throw new Error(red('✖') + ' The command line argument --file-path or --path or --p must be commanded')
+  if (!argvPath) return argvPath
+
+  const originFilePath = getAbsolute(argvPath, cwd)
+  const errorMsg = isFileLegal(originFilePath)
+
+  if (errorMsg) {
+    throw new Error(red('✖') + ' ' + errorMsg)
   }
-  return getAbsolute(argvPath, cwd)
+
+  return originFilePath
 }

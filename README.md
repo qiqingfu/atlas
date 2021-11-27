@@ -16,7 +16,4 @@ create-atlas --path=docs.txt
 
 path can be a relative or absolute path. 
 
-# Description
-- https://mp.weixin.qq.com/s/atAW2diEi1cXmA63JC4CJg
-
 
