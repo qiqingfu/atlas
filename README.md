@@ -10,10 +10,22 @@ npm install -g create-atlas
 ```
 
 # Basic Usage
+Run the command directly：
+```
+create-atlas
+```
+
+Specify the path parameter：
 ```
 create-atlas --path=docs.txt
 ```
 
 path can be a relative or absolute path. 
 
+# Supported files
+Create-atlas supports parsing the following types of files：
+
+- .txt
+- .md
+- .html
 
