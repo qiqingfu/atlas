@@ -29,3 +29,11 @@ Create-atlas supports parsing the following types of files：
 - .md
 - .html
 
+# Support for parsed images
+Supports parsing the following image types in documents：
+
+- jpe?g
+- png
+- svg
+
+

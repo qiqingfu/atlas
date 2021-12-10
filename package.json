@@ -15,7 +15,7 @@
   "scripts": {
     "prepare": "husky install",
     "format": "prettier --write .",
-    "build": "esbuild --bundle index.js --format=cjs --platform=node --outfile=outfile.cjs --minify --watch",
+    "build": "esbuild --bundle index.js --format=cjs --platform=node --outfile=outfile.cjs --minify",
     "snapshot": "node snapshot.js",
     "pretest": "run-s build snapshot",
     "test": "node test.js",
